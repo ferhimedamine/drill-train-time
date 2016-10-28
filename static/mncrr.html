@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.12.3.js">
+	</script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.js">
+	</script>
+       	<link rel="stylesheet" type="text/css" href="/static/mncrr.css">
+       	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+	<script type="text/javascript" class="init">
+$(document).ready( function() {
+    var table = $('#example').DataTable( {
+        "processing": true,
+        "ajax": {
+           "url": "/drill/query.json",
+           "type": "POST",
+           "contentType": "application/json",
+           "data":function(d) {
+              return JSON.stringify({"queryType":"SQL","query":"select * from dfs.pcurtis.delays"});
+           }
+        },
+        "sAjaxDataProp": "rows",
+        "rowCallback": function(row,data,dataIndex) {
+           if (data['delay'] > 5) {
+              $(row).addClass("red");
+              return;
+           }
+           if (data['delay'] > 0) {
+              $(row).addClass("yellow");
+              return;
+           }
+        },
+        "columnsDefs": [
+           {"className": "dt-center", "targets": "_all"}
+        ],
+        "columns": [
+            { "data": "id" },
+            { "data": "Origin" },
+            { "data": "Departure" },
+            { "data": "Destination" },
+            { "data": "delay" }
+        ],
+        "order": [[ 2, "asc" ]]
+    } );
+    setInterval( function() {
+          table.ajax.reload(null, false);
+       }, 30000);
+});
+
+	</script>
+</head>
+<body>
+<table id="example" class="display compact dt-center" cellspacing="0" width="90%">
+  <thead>
+    <tr>
+      <th>Train ID</th>
+      <th>Origin</th>
+      <th>Departure Time</th>
+      <th>Destination</th>
+      <th>Delay (minutes)</th>
+    </tr>
+  </thead>
+  <tbody/>
+  <tfoot>
+    <tr>
+      <th>Train ID</th>
+      <th>Origin</th>
+      <th>Departure Time</th>
+      <th>Destination</th>
+      <th>Delay (minutes)</th>
+    </tr>
+  </tfoot>
+</table>
+</body>
+</html>

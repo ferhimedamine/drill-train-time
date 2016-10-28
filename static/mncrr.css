@@ -1,0 +1,7 @@
+.yellow { background-color: #FFE633 !important }
+.red { background-color: red !important;
+       color: white !important;
+       font-weight: bold !important }
+td.sorting_0 { background-color: transparent !important }
+td.sorting_1 { background-color: transparent !important }
+.dt-center { text-align: center }
