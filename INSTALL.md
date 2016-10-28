@@ -11,7 +11,7 @@ Basic Install:
   7. Update the storage plugin.
   8. Download the static train scheduling information, and unzip the file in the directory where you cloned this respository. http://web.mta.info/developers/data/mnr/google_transit.zip
   9. Create an empry live feed file (`touch feed.json`) Drill will not create the view properly without the underlying data file existing.
-  10. Using `sqlline`, create the views. There are three of them, all named `create-*` To do this from the command line, execute `sqlline -u jdbc:drill: -f cteate-....sql`
+  10. Using `sqlline`, create the views. There are three of them, all named `create-*` To do this from the command line, execute `sqlline -u jdbc:drill: -f create-....sql`
   11. Execute the `rundemo.sh` script (`bash run-demo.sh`) This starts the small Python web server and the script that retrieves the live data.
   12. Point your browser to `http://<ip_of_demo>:5000/static/mncrr.html`
   
