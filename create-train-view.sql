@@ -1,4 +1,4 @@
-create view train as (
+create view dfs.traintime.train as (
 select 
 st.trip_id as trip_id,
 cast(st.stop_id as int) as Origin_id,

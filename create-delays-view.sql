@@ -1,4 +1,4 @@
-create view delays as (
+create view dfs.traintime.delays as (
 select 
 tr.*, 
 cast(((f.trip_update.stop_time_update.departure.delay)/60) as int) as delay

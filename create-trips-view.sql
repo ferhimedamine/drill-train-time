@@ -1,4 +1,4 @@
-create view train_trips as (
+create view dfs.traintime.train_trips as (
 select 
 t.trip_short_name as id,
 t.trip_id as trip_id,
