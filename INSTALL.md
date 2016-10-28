@@ -3,7 +3,7 @@ The installation instructions are designed for use on a single node MapR Converg
 
 Basic Install:
   1. Ensure that Apache Drill is installed and working
-  2. Ensure that 'git' is installed
+  2. Ensure that 'git' and 'jq' are installed
   3. Use Python 'pip' to install Flask and requests
   4. Clone this repository
   5. Using the Apache Drill UI, create an additional workspace in the 'dfs' storage plugin. The workspace must be called 'traintime', and point to the directory where you cloned this repository
