@@ -10,6 +10,6 @@ tr.Dest_id,
 tr.Departure,
 tr.Origin_id,
 tr.Origin
-from dfs.pcurtis.train tr, dfs.pcurtis.`trips.txt` t
+from dfs.traintime.train tr, dfs.traintime.`trips.txt` t
 where t.trip_id = tr.trip_id
 )
